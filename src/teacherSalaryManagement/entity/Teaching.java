@@ -1,11 +1,23 @@
-package teacherSalaryManagement;
+package teacherSalaryManagement.entity;
+
+import teacherSalaryManagement.entity.Subject;
+import teacherSalaryManagement.entity.Teacher;
 
 import java.util.Arrays;
 
 public class Teaching {
-    public  Teacher teacher;
-    public  Subject[] subjects;
-    public  int[] quantity;
+    public Teacher teacher;
+    private  Subject[] subjects;
+    private  int[] quantity;
+
+    public Teaching() {
+    }
+
+    public Teaching(Teacher teacher, Subject[] subjects, int []quantity) {
+        this.teacher = teacher;
+        this.subjects = subjects;
+        this.quantity = quantity;
+    }
 
     public Teacher getTeacher() {
         return teacher;
@@ -37,14 +49,5 @@ public class Teaching {
                 ", " + Arrays.toString(subjects) +
                 ", Số lượng : " + Arrays.toString(quantity) +
                 "}";
-    }
-
-    public Teaching() {
-    }
-
-    public Teaching(Teacher teacher, Subject[] subjects, int []quantity) {
-        this.teacher = teacher;
-        this.subjects = subjects;
-        this.quantity = quantity;
     }
 }

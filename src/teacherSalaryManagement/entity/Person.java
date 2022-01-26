@@ -1,13 +1,24 @@
-package teacherSalaryManagement;
+package teacherSalaryManagement.entity;
 
 import java.util.Scanner;
 
 public class Person {
     private static int iDAuto = 100;
-    public int iD;
-    public String name;
-    public String adress;
-    public String phone;
+    int iD;
+    String name;
+    String adress;
+    String phone;
+
+    public Person(){
+
+    }
+
+    public Person(int iD, String name, String adress, String phone) {
+        this.iD = iD;
+        this.name = name;
+        this.adress = adress;
+        this.phone = phone;
+    }
 
     public static int getiDAuto() {
         return iDAuto;
@@ -49,16 +60,6 @@ public class Person {
         this.phone = phone;
     }
 
-    public Person(){
-        this.iD = iDAuto++;
-    }
-    public Person(int iD, String name, String adress, String phone) {
-        this.iD = iD;
-        this.name = name;
-        this.adress = adress;
-        this.phone = phone;
-    }
-
     public void Input(){
         Scanner sc = new Scanner(System.in);
         this.setiD(iDAuto);
@@ -70,6 +71,7 @@ public class Person {
         this.setPhone(sc.nextLine());
     }
 
+    @Override
     public String toString(){
         return "Person{" +
                 "ID : " + iD +

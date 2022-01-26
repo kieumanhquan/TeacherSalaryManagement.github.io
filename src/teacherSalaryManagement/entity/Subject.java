@@ -1,13 +1,13 @@
-package teacherSalaryManagement;
+package teacherSalaryManagement.entity;
 
 import java.util.Scanner;
 
 public class Subject {
     private static int iDAuto = 100;
-    public int iD;
-    public String subject;
-    public int total;
-    public int theory;
+    private int iD;
+    private String subject;
+    private int total;
+    private int theory;
 
     public static int getiDAuto() {
         return iDAuto;
@@ -93,6 +93,7 @@ public class Subject {
         this.setPrice(sc.nextInt());
     }
 
+    @Override
     public String toString(){
         return "Subject{" +
                 "ID = " + iD +

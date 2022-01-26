@@ -1,17 +1,16 @@
-package teacherSalaryManagement;
+package teacherSalaryManagement.entity;
+
+import teacherSalaryManagement.entity.Person;
 
 import java.util.Scanner;
 
-public class Teacher extends Person{
-    public String getLevel() {
-        return level;
-    }
-
-    public void setLevel(String level) {
-        this.level = level;
-    }
-
+public class Teacher extends Person {
     private String level;
+
+    public final static String TYPE_1 = "GS_TS";
+    public final static String TYPE_2 = "PGS";
+    public final static String TYPE_3 = "Giảng viên chính";
+    public final static String TYPE_4 = "Th.S";
 
     public Teacher() {
     }
@@ -21,11 +20,18 @@ public class Teacher extends Person{
         this.level = level;
     }
 
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
     public void Input(){
         Scanner sc = new Scanner(System.in);
         super.Input();
         System.out.println("Trình độ: ");
-        String[] arr = {"GS_TS", "PGS-TS", "Giảng viên chính","Th.S"};
 
         boolean check = true;
         do {
@@ -39,16 +45,16 @@ public class Teacher extends Person{
             a = sc.nextInt();
             switch (a) {
                 case 1:
-                    this.setLevel(arr[0]);
+                    this.setLevel(TYPE_1);
                     break;
                 case 2:
-                    this.setLevel(arr[1]);
+                    this.setLevel(TYPE_2);
                     break;
                 case 3:
-                    this.setLevel(arr[2]);
+                    this.setLevel(TYPE_3);
                     break;
                 case 4:
-                    this.setLevel(arr[3]);
+                    this.setLevel(TYPE_4);
                     break;
                 default:
                     System.out.println("Không có danh mục vừa nhập, vui lòng nhập lại!");

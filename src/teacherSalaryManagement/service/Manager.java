@@ -1,11 +1,15 @@
-package teacherSalaryManagement;
+package teacherSalaryManagement.service;
+
+import teacherSalaryManagement.entity.Subject;
+import teacherSalaryManagement.entity.Teacher;
+import teacherSalaryManagement.entity.Teaching;
 
 import java.util.Scanner;
 
 public class Manager {
-    public static Subject[] subjects;
-    public static Teacher[] teachers;
-    public static Teaching[] teachings;
+    private static Subject[] subjects;
+    private static Teacher[] teachers;
+    private static Teaching[] teachings;
 
     public void run(){
         while (true) {
@@ -71,7 +75,8 @@ public class Manager {
         System.out.println("Nhập số lượng giảng viên");
         int a = scanner.nextInt();
         teachers = new Teacher[a];
-        for(int i = 0; i < a; i++){
+
+        for(int i = 0; i < teachers.length; i++){
             Teacher teacher = new Teacher();
             teacher.Input();
             teachers[i] = teacher;
@@ -91,7 +96,7 @@ public class Manager {
         System.out.print("Nhập số lượng môn học: ");
         int a = scanner.nextInt();
         subjects = new Subject[a];
-        for(int i = 0; i < a; i++){
+        for(int i = 0; i < subjects.length; i++){
             Subject subject = new Subject();
             subject.InputSubject();
             subjects[i] = subject;
@@ -121,7 +126,7 @@ public class Manager {
         }while (flag);
         teachings = new Teaching[a];
         int sum = 0;
-        for(int i = 0; i < a; i++){
+        for(int i = 0; i < teachings.length; i++){
             System.out.print("Nhập ID GV: ");
             int d;
             Teacher teacher;
