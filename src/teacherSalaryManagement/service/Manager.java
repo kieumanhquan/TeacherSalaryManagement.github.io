@@ -1,9 +1,12 @@
 package teacherSalaryManagement.service;
 
+import com.sun.deploy.util.ArrayUtil;
 import teacherSalaryManagement.entity.Subject;
 import teacherSalaryManagement.entity.Teacher;
 import teacherSalaryManagement.entity.Teaching;
 
+
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Manager {
@@ -74,12 +77,29 @@ public class Manager {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Nhập số lượng giảng viên");
         int a = scanner.nextInt();
-        teachers = new Teacher[a];
 
-        for(int i = 0; i < teachers.length; i++){
-            Teacher teacher = new Teacher();
-            teacher.Input();
-            teachers[i] = teacher;
+        if (teachers != null) {
+            Teacher[] teacherClone = teachers.clone();
+
+            teachers = new Teacher[teacherClone.length + a];
+
+            for(int i = 0 ; i < teacherClone.length; i++){
+                teachers[i] = teacherClone[i];
+            }
+
+            for(int i = teacherClone.length ; i < a + teacherClone.length; i++){
+                Teacher teacher = new Teacher();
+                teacher.Input();
+                teachers[i] = teacher;
+            }
+        } else {
+            teachers = new Teacher[a];
+
+            for(int i = 0 ; i < a; i++){
+                Teacher teacher = new Teacher();
+                teacher.Input();
+                teachers[i] = teacher;
+            }
         }
     }
 
@@ -95,11 +115,29 @@ public class Manager {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Nhập số lượng môn học: ");
         int a = scanner.nextInt();
-        subjects = new Subject[a];
-        for(int i = 0; i < subjects.length; i++){
-            Subject subject = new Subject();
-            subject.InputSubject();
-            subjects[i] = subject;
+
+        if (subjects != null) {
+            Subject[] subjectClone = subjects.clone();
+
+            subjects = new Subject[subjectClone.length + a];
+
+            for(int i = 0 ; i < subjectClone.length; i++){
+                subjects[i] = subjectClone[i];
+            }
+
+            for(int i = subjectClone.length ; i < a + subjectClone.length; i++){
+                Subject subject = new Subject();
+                subject.InputSubject();
+                subjects[i] = subject;
+            }
+        } else {
+            subjects = new Subject[a];
+
+            for(int i = 0 ; i < a; i++){
+                Subject subject = new Subject();
+                subject.InputSubject();
+                subjects[i] = subject;
+            }
         }
     }
 
@@ -126,7 +164,7 @@ public class Manager {
         }while (flag);
         teachings = new Teaching[a];
         int sum = 0;
-        for(int i = 0; i < teachings.length; i++){
+        for(int i = 0; i < a; i++){
             System.out.print("Nhập ID GV: ");
             int d;
             Teacher teacher;
@@ -191,6 +229,7 @@ public class Manager {
             Teaching teaching = new Teaching(teacher, subjects, ListQuantity);
             teachings[i] = teaching;
         }
+
         for(int i = 0; i < a; i++)
         {
             System.out.println(teachings[i]);
