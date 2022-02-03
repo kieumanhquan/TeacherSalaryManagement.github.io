@@ -62,7 +62,7 @@ public class Person {
 
     public void Input(){
         Scanner sc = new Scanner(System.in);
-        this.setiD(iDAuto);
+        this.setiD(iDAuto++);
         System.out.println("Nhập họ tên: ");
         this.setName(sc.nextLine());
         System.out.println("Địa chỉ: ");

@@ -1,12 +1,10 @@
 package teacherSalaryManagement.service;
 
-import com.sun.deploy.util.ArrayUtil;
 import teacherSalaryManagement.entity.Subject;
 import teacherSalaryManagement.entity.Teacher;
-import teacherSalaryManagement.entity.Teaching;
+import teacherSalaryManagement.entity.teaching.Teaching;
 
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Manager {

@@ -1,4 +1,4 @@
-package teacherSalaryManagement;
+package teacherSalaryManagement.main;
 
 import teacherSalaryManagement.service.Manager;
 

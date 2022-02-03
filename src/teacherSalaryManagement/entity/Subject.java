@@ -103,4 +103,7 @@ public class Subject {
                 ", Mức kinh phí = '" + price + '\'' +
                 '}';
     }
+
+    public void inputInfo() {
+    }
 }

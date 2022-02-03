@@ -1,4 +1,4 @@
-package teacherSalaryManagement.entity;
+package teacherSalaryManagement.entity.teaching;
 
 import teacherSalaryManagement.entity.Subject;
 import teacherSalaryManagement.entity.Teacher;
